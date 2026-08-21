@@ -19,5 +19,20 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <style>
+      a[href*="netlify.com"],
+      #netlify-badge,
+      .netlify-badge {
+        display: none !important;
+      }
+    </style>
+    <script>
+      // Netlify's "Powered by Netlify" badge is injected client-side after
+      // load with markup that varies by account/plan, so CSS selectors alone
+      // are unreliable — watch the DOM and remove it whenever it appears.
+      new MutationObserver(() => {
+        document.querySelectorAll('a[href*="netlify.com"]').forEach((el) => el.remove())
+      }).observe(document.body, { childList: true, subtree: true })
+    </script>
   </body>
 </html>
