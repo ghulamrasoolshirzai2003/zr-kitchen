@@ -40,10 +40,15 @@ export default function OrderCart() {
     loadTables()
     loadActiveOrders()
 
-    // Realtime works for restaurant_tables (anon can read it).
+    // Realtime requires the "restaurant_tables" table to have replication
+    // switched on in the Supabase dashboard (Database → Replication), which
+    // isn't guaranteed to be set on every project — so poll as a fallback
+    // that works regardless, same as the orders polling below.
+    const tablesPollInterval = setInterval(loadTables, 5000)
+
     // For orders, anon has no SELECT permission so Realtime events are blocked by RLS —
     // poll instead so warnings update automatically when the admin changes an order status.
-    const pollInterval = setInterval(loadActiveOrders, 8000)
+    const ordersPollInterval = setInterval(loadActiveOrders, 8000)
 
     const channel = supabase
       .channel('cart-live')
@@ -52,10 +57,17 @@ export default function OrderCart() {
 
     return () => {
       cancelled = true
-      clearInterval(pollInterval)
+      clearInterval(tablesPollInterval)
+      clearInterval(ordersPollInterval)
       supabase.removeChannel(channel)
     }
   }, [])
+
+  useEffect(() => {
+    if (tableId && tables.length > 0 && !tables.some((t) => t.id === tableId)) {
+      setTableId('')
+    }
+  }, [tables, tableId])
 
   if (!isSupabaseConfigured) return null
 
