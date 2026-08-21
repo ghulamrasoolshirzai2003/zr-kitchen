@@ -32,6 +32,7 @@
   gap: var(--space-6);
   height: 88px;
   transition: height var(--transition-slow);
+  justify-content: space-between;
 }
 
 .site-header.is-scrolled .site-header__inner {
@@ -68,6 +69,7 @@
   display: none;
   flex: 1;
   justify-content: center;
+  margin-right: auto;
 }
 
 .site-header__nav ul {
@@ -132,6 +134,7 @@
   align-items: center;
   justify-content: center;
   color: var(--color-gold-light);
+  margin-left: auto;
 }
 
 .site-header__toggle-bar,

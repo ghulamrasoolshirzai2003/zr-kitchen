@@ -13,13 +13,7 @@
   inset: -6% 0 0 0;
   height: 112%;
   z-index: -2;
-}
-
-.hero__media-fallback {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  background: #000;
 }
 
 .hero__video {
