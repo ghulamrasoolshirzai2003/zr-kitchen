@@ -7,33 +7,32 @@
 .delivery-badge {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: 0.6rem 1.1rem;
-  border-radius: 999px;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: #fff;
-  white-space: nowrap;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.delivery-badge svg {
+  width: 20px;
+  height: 20px;
 }
 
 .delivery-badge:hover {
   transform: translateY(-2px);
 }
 
-.delivery-badge--foodpanda {
-  background: #d70f64;
-}
-
 .delivery-badge--foodpanda:hover {
-  box-shadow: 0 8px 20px rgba(215, 15, 100, 0.35);
-}
-
-.delivery-badge--grab {
-  background: #00b14f;
+  color: #fff;
+  background: #d70f64;
+  border-color: #d70f64;
 }
 
 .delivery-badge--grab:hover {
-  box-shadow: 0 8px 20px rgba(0, 177, 79, 0.35);
+  color: #fff;
+  background: #00b14f;
+  border-color: #00b14f;
 }
