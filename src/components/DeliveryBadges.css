@@ -1,0 +1,39 @@
+.delivery-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.delivery-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #fff;
+  white-space: nowrap;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.delivery-badge:hover {
+  transform: translateY(-2px);
+}
+
+.delivery-badge--foodpanda {
+  background: #d70f64;
+}
+
+.delivery-badge--foodpanda:hover {
+  box-shadow: 0 8px 20px rgba(215, 15, 100, 0.35);
+}
+
+.delivery-badge--grab {
+  background: #00b14f;
+}
+
+.delivery-badge--grab:hover {
+  box-shadow: 0 8px 20px rgba(0, 177, 79, 0.35);
+}

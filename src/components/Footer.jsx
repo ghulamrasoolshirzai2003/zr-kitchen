@@ -1,5 +1,6 @@
 import { restaurantInfo } from '../data/menuData'
 import { InstagramIcon, FacebookIcon, TikTokIcon } from './icons'
+import DeliveryBadges from './DeliveryBadges'
 import logoFull from '../assets/logo-full.jpg'
 
 const NAV_LINKS = [
@@ -41,6 +42,11 @@ export default function Footer() {
               </li>
             ))}
           </ul>
+        </div>
+
+        <div>
+          <p className="site-footer__heading">Order Delivery</p>
+          <DeliveryBadges className="site-footer__delivery" />
         </div>
 
         <div>

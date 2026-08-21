@@ -61,6 +61,10 @@ export const restaurantInfo = {
     facebook: 'https://www.facebook.com/share/19VbVqHNz1/?mibextid=wwXIfr',
     tiktok: 'https://www.tiktok.com/@zr_kitchenperlis001000?_r=1&_t=ZS-98jlpJhgSI8',
   },
+  delivery: {
+    foodpanda: 'https://www.foodpanda.my/restaurant/kbav',
+    grabfood: 'https://r.grab.com/g/6-20260822_034346_7D357A75373446EFA9F5BC72D6588BCB_MEXMPS-1-C4CCDAMKKB5XJE',
+  },
 }
 
 export const menu = [

@@ -63,8 +63,18 @@
 
 @media (min-width: 640px) {
   .site-footer__grid {
-    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
   }
+}
+
+.site-footer__delivery {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.site-footer__delivery .delivery-badge {
+  font-size: 0.78rem;
+  padding: 0.5rem 0.9rem;
 }
 
 @media (min-width: 640px) {

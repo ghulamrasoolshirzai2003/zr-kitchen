@@ -11,6 +11,18 @@
   margin-top: var(--space-6);
 }
 
+.reservations__delivery {
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+}
+
+.reservations__delivery-label {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+}
+
 .reservation-form {
   background: var(--color-surface);
   border: 1px solid var(--color-border);

@@ -32,6 +32,7 @@ import './components/Location.css'
 import './components/Footer.css'
 import './components/OrderCart.css'
 import './components/ClosedBanner.css'
+import './components/DeliveryBadges.css'
 import './pages/Admin.css'
 
 function MainSite() {

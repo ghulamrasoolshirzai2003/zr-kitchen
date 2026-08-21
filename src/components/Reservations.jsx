@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Reveal from './Reveal'
+import DeliveryBadges from './DeliveryBadges'
 import { restaurantInfo } from '../data/menuData'
 
 const initialForm = {
@@ -63,6 +64,11 @@ export default function Reservations() {
           <a className="btn btn-outline reservations__call" href={`tel:${restaurantInfo.phoneOrders.replace(/\s|-/g, '')}`}>
             Or call {restaurantInfo.phoneOrders}
           </a>
+
+          <div className="reservations__delivery">
+            <p className="reservations__delivery-label">Not dining in? Order for delivery:</p>
+            <DeliveryBadges />
+          </div>
         </Reveal>
 
         <Reveal as="form" delay={0.15} className="reservation-form" onSubmit={handleSubmit} noValidate>
