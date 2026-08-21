@@ -34,12 +34,6 @@ export default function Hero() {
   return (
     <section id="home" className="hero" ref={ref}>
       <motion.div className="hero__media" style={{ y }}>
-        <img
-          src={ambiencePhotos.hero.src}
-          alt={ambiencePhotos.hero.alt}
-          // eslint-disable-next-line react/no-unknown-property
-          fetchpriority="high"
-        />
         {showVideo && (
           <video
             key={idx}
