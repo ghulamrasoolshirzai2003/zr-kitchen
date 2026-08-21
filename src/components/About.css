@@ -1,0 +1,65 @@
+.about {
+  background: var(--color-bg);
+}
+
+.about__grid {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.about__paragraph {
+  color: var(--color-text-muted);
+  margin-top: var(--space-5);
+  max-width: 54ch;
+  font-size: 1.02rem;
+}
+
+.about__contact-note {
+  margin-top: var(--space-7);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  max-width: 40ch;
+}
+
+.about__contact-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+.about__images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.about__image {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  aspect-ratio: 4 / 3;
+}
+
+.about__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 900ms var(--ease-elegant);
+}
+
+.about__image:hover img {
+  transform: scale(1.05);
+}
+
+@media (min-width: 1024px) {
+  .about__grid {
+    grid-template-columns: 0.95fr 1.05fr;
+    align-items: center;
+    gap: var(--space-9);
+  }
+}

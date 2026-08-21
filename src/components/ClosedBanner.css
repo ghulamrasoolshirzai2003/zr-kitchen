@@ -1,0 +1,56 @@
+.closed-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 115;
+  background: linear-gradient(135deg, #a3402a, #c0553b);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.55rem 0;
+}
+
+.closed-banner__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.closed-banner__text {
+  text-align: center;
+}
+
+.closed-banner__close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.2rem;
+}
+
+.closed-banner__close:hover {
+  color: #fff;
+}
+
+body.has-closed-banner .scroll-progress {
+  top: 34px;
+}
+
+body.has-closed-banner .site-header {
+  top: 34px;
+}
+
+body.has-closed-banner .menu-filterbar {
+  top: 102px;
+}
+
+body.has-closed-banner .site-header.is-scrolled ~ * .menu-filterbar,
+body.has-closed-banner .menu-filterbar {
+  top: 102px;
+}

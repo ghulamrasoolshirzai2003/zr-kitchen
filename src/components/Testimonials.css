@@ -1,0 +1,156 @@
+.testimonials-section {
+  background: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+/* ── Infinite scroll carousel ── */
+
+.t-carousel {
+  overflow: hidden;
+  width: 100%;
+  padding: var(--space-2) 0 var(--space-4);
+  cursor: default;
+}
+
+.t-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: t-scroll 32s linear infinite;
+}
+
+.t-carousel:hover .t-track {
+  animation-play-state: paused;
+}
+
+@keyframes t-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── Individual card ── */
+
+.t-card {
+  position: relative;
+  flex: 0 0 300px;
+  height: 210px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  background: var(--color-surface);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.t-card:hover {
+  border-color: var(--color-gold);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.45);
+}
+
+/* ── Front — text ── */
+
+.t-card__front {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  height: 100%;
+  box-sizing: border-box;
+  transition: opacity 0.35s ease;
+}
+
+.t-card:hover .t-card__front {
+  opacity: 0;
+}
+
+.t-card__stars {
+  font-size: 0.85rem;
+  color: var(--color-gold);
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.t-card__qmark {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--color-gold);
+  line-height: 0.7;
+  display: block;
+  margin-bottom: var(--space-1);
+}
+
+.t-card__quote {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  font-style: italic;
+  flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.t-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+  margin-top: auto;
+}
+
+.t-card__name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-gold-light);
+}
+
+.t-card__hint {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.68rem;
+  color: var(--color-text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  opacity: 0.6;
+}
+
+/* ── Photo overlay — revealed on hover ── */
+
+.t-card__photo {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 2;
+}
+
+.t-card:hover .t-card__photo {
+  opacity: 1;
+}
+
+.t-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.t-card__photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-3) var(--space-4);
+  background: linear-gradient(to top, rgba(6,5,4,0.88) 0%, transparent 100%);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-gold-light);
+  letter-spacing: 0.04em;
+}

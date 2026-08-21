@@ -1,0 +1,355 @@
+/* ============================================================
+   ZR Kitchen — design tokens & base styles
+   Deliberate dark, warm-gold fine-dining identity — not
+   theme-adaptive; this is a brand choice, not a UI default.
+   ============================================================ */
+
+:root {
+  /* Color */
+  --color-bg: #0b0a08;
+  --color-bg-alt: #120f0b;
+  --color-surface: #17140f;
+  --color-surface-raised: #1e1a14;
+  --color-border: rgba(201, 162, 75, 0.22);
+  --color-border-strong: rgba(201, 162, 75, 0.45);
+
+  --color-gold: #c9a24b;
+  --color-gold-light: #e4c979;
+  --color-gold-dark: #8f6f2e;
+
+  --color-text: #f4efe4;
+  --color-text-muted: #b7ac99;
+  --color-text-faint: #857c6c;
+
+  --color-overlay-strong: rgba(9, 8, 6, 0.82);
+  --color-overlay-soft: rgba(9, 8, 6, 0.45);
+
+  /* Type */
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Spacing scale (rem) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+
+  --container-max: 1320px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+
+  --ease-elegant: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-fast: 220ms var(--ease-elegant);
+  --transition-slow: 600ms var(--ease-elegant);
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+img,
+picture,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Focus visibility — dark theme, must stay high-contrast */
+:focus-visible {
+  outline: 2px solid var(--color-gold-light);
+  outline-offset: 3px;
+}
+
+/* ---------- Layout utilities ---------- */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-inline: var(--space-7);
+  }
+}
+
+.section {
+  padding-block: var(--space-9);
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding-block: var(--space-8);
+  }
+}
+
+.section-heading {
+  max-width: 640px;
+  margin-bottom: var(--space-7);
+}
+
+.section-heading.center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-3);
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  color: var(--color-text);
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--color-gold-light);
+}
+
+.section-lede {
+  margin-top: var(--space-4);
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  max-width: 56ch;
+}
+
+.section-heading.center .section-lede {
+  margin-inline: auto;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.85rem 1.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: var(--color-gold);
+  color: #17130a;
+  border-color: var(--color-gold);
+}
+
+.btn-primary:hover {
+  background: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
+}
+
+.btn-outline:hover {
+  background: rgba(201, 162, 75, 0.1);
+  border-color: var(--color-gold);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-gold-light);
+  padding-inline: 0;
+  letter-spacing: 0.12em;
+}
+
+.btn-ghost::after {
+  content: '→';
+  margin-left: var(--space-2);
+  transition: transform var(--transition-fast);
+  display: inline-block;
+}
+
+.btn-ghost:hover::after {
+  transform: translateX(4px);
+}
+
+/* Scroll-triggered reveal animations are handled by the <Reveal> component
+   (src/components/Reveal.jsx), which wraps Framer Motion's `whileInView`
+   (itself built on IntersectionObserver) — see prefers-reduced-motion rule
+   above, which Framer Motion respects automatically. */
+
+/* ---------- Ornamental divider ---------- */
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-gold);
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  height: 1px;
+  width: 32px;
+  background: var(--color-border-strong);
+}
+
+/* ---------- Unified photo color grade ----------
+   Real phone photos and stock photography have different color temperature
+   and contrast; this shared, subtle grade pulls them toward one consistent
+   look so they don't visibly clash sitting next to each other. */
+
+.dish-card__media img,
+.gallery-item img,
+.menu-row__thumb,
+.about__image img {
+  filter: saturate(1.08) contrast(1.05) sepia(0.06);
+}
+
+/* ---------- Shared social icon buttons ---------- */
+
+.social-icons {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.social-icons__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+}
+
+.social-icons__link svg {
+  width: 18px;
+  height: 18px;
+}
+
+.social-icons__link:hover {
+  color: #17130a;
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--space-4);
+  top: -80px;
+  background: var(--color-gold);
+  color: #17130a;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  z-index: 200;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
