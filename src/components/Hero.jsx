@@ -41,6 +41,7 @@ export default function Hero() {
             style={{ opacity: videoVisible ? 1 : 0 }}
             src={VIDEOS[idx]}
             muted
+            autoPlay
             playsInline
             onCanPlay={handleCanPlay}
             onEnded={handleEnded}
