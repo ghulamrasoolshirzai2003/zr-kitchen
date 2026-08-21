@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useCart } from '../context/CartContext'
 import { supabase, isSupabaseConfigured } from '../lib/supabaseClient'
 import { parseItemPrice } from '../lib/orderTotals'
+import DeliveryBadges from './DeliveryBadges'
 
 export default function OrderCart() {
   const { items, itemCount, isOpen, openCart, closeCart, removeItem, incrementItem, decrementItem, submitOrder } = useCart()
@@ -170,7 +171,13 @@ export default function OrderCart() {
                   </button>
                 </div>
               ) : items.length === 0 ? (
-                <p className="order-cart__empty">Nothing in your order yet — add a dish from the menu.</p>
+                <div className="order-cart__empty-state">
+                  <p className="order-cart__empty">Nothing in your order yet — add a dish from the menu.</p>
+                  <div className="order-cart__delivery-nudge">
+                    <p className="order-cart__delivery-label">Not eating in? Get it delivered to your door:</p>
+                    <DeliveryBadges />
+                  </div>
+                </div>
               ) : (
                 <form className="order-cart__form" onSubmit={handleSubmit}>
                   <ul className="order-cart__items">

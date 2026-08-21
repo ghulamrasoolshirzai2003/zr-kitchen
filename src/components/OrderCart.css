@@ -101,8 +101,25 @@
   color: #17130a;
 }
 
+.order-cart__empty-state {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
 .order-cart__empty {
   color: var(--color-text-muted);
+}
+
+.order-cart__delivery-nudge {
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
+}
+
+.order-cart__delivery-label {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
 }
 
 .order-cart__form {
