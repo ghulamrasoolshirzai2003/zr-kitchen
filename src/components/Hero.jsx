@@ -34,6 +34,12 @@ export default function Hero() {
   return (
     <section id="home" className="hero" ref={ref}>
       <motion.div className="hero__media" style={{ y }}>
+        <img
+          src={ambiencePhotos.hero.src}
+          alt={ambiencePhotos.hero.alt}
+          className="hero__media-fallback"
+          fetchpriority="high"
+        />
         {showVideo && (
           <video
             key={idx}
@@ -42,6 +48,7 @@ export default function Hero() {
             src={VIDEOS[idx]}
             muted
             playsInline
+            poster={ambiencePhotos.hero.src}
             onCanPlay={handleCanPlay}
             onEnded={handleEnded}
           />
